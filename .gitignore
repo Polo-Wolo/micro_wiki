@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+.venv/
+
+# Byte-compiled / cached files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
