@@ -4,6 +4,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from threading import Thread
 import markdown
+from markdown.extensions.toc import TocExtension
+import markdown
 import re
 
 from .indexer import load_pages, render_wikilinks
@@ -93,13 +95,19 @@ def page(slug: str, request: Request):
     if not page:
         return HTMLResponse("Page introuvable", status_code=404)
 
-    content = render_wikilinks(page.content)
-    html = markdown.markdown(
-        content,
-        extensions=["fenced_code", "tables"]
+    # Markdown avec TOC
+    md = markdown.Markdown(
+        extensions=[
+            "fenced_code",
+            "tables",
+            TocExtension(anchorlink=True)
+        ]
     )
 
-    backlinks = [PAGES[s] for s in page.backlinks]
+    html = md.convert(page.content)
+
+    # TOC générée par l'extension
+    toc = getattr(md, "toc_tokens", None)
 
     return templates.TemplateResponse(
         "page.html",
@@ -107,7 +115,7 @@ def page(slug: str, request: Request):
             request,
             page=page,
             html=html,
-            backlinks=backlinks,
+            toc=toc,
             title=page.title
         )
     )

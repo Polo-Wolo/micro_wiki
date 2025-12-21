@@ -5,7 +5,7 @@ tags: [python, web, server]
 ---
 
 # Flask
-
+[[STM32]]
 * [Documentation](https://flask.palletsprojects.com/)
 
 Flask is a lightweight Python web framework used for building web applications quickly and easily. It provides a minimalistic and flexible approach to web development, and is often used for small to medium-sized web applications and prototypes.

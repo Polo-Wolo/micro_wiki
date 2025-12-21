@@ -1,26 +1,46 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h2 class="title">Tags</h2>
+<div class="columns is-centered mt-6">
 
-<div class="tags">
-  {% for t in page.tags %}
-    <a class="tag is-link is-light" href="/tags/{{ t }}">
-      {{ t }}
-    </a>
-  {% endfor %}
+  <!-- Contenu principal -->
+  <div class="column is-narrow" style="max-width: 800px;">
+    {% if page.tags %}
+    <div class="tags mb-4">
+      {% for t in page.tags %}
+      <a class="tag is-link is-light mr-2" href="/tags/{{ t }}">{{ t }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="content">
+      {{ html | safe }}
+    </div>
+  </div>
+
+  <!-- TOC -->
+  {% if toc %}
+  <div class="toc column is-narrow" style="width: 300px;">
+    <aside class="menu" style="position: sticky; top: 1rem;">
+      <p class="menu-label font-weight-bold">Table des matières</p>
+      <ul class="menu-list">
+        {% macro render_toc(items) %}
+        {% for item in items %}
+        <li>
+          <a href="#{{ item.id }}">{{ item.name }}</a>
+          {% if item.children %}
+          <ul>
+            {{ render_toc(item.children) }}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% endmacro %}
+        {{ render_toc(toc) }}
+      </ul>
+    </aside>
+  </div>
+  {% endif %}
+
 </div>
-
-<div class="content">
-  {{ html | safe }}
-</div>
-
-{% if backlinks %}
-<hr>
-<h2 class="subtitle">Liens entrants</h2>
-<ul>
-  {% for p in backlinks %}
-  <li><a href="{{ base_url }}page/{{ page.slug }}.html">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
-{% endif %}
 {% endblock %}

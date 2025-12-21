@@ -1,0 +1,24 @@
+.content img {
+    max-width: 100%;
+    /* Markdown responsive */
+}
+
+.toc .menu {
+    border-left: 1px solid #dbdbdb;
+    padding-left: 1em;
+}
+.toc .menu-list {
+    list-style-type: none;
+    margin: 1em 0;
+}
+
+.toc .menu-list a {
+    padding: 0.15em 0.25em;
+}
+
+.toc .menu ul ul,
+.toc .menu ul li {
+    margin: 0 0.5em;
+    list-style-type: none;
+    border-left: none;
+}
