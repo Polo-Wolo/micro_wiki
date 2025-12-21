@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1 class="title">Tags</h1>
+
+    <div class="tags">
+      {% for tag, pages in tags %}
+        <a class="tag is-link is-light" href="/tags/{{ tag }}">
+          {{ tag }} ({{ pages|length }})
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

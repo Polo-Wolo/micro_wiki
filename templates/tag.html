@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1 class="title">Pages taggée(s) "{{ tag }}"</h1>
+
+    {% if pages %}
+      <ul>
+        {% for page in pages %}
+          <li>
+            <a href="/page/{{ page.slug }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Aucune note pour ce tag.</p>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

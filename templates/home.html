@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+
+    <h1 class="title">{{ title }}</h1>
+
+    {% for section, pages in sections.items() %}
+      <div class="box">
+        <h2 class="subtitle">{{ section }}</h2>
+
+        <ul>
+          {% for page in pages %}
+            <li>
+              <a href="/page/{{ page.slug }}">
+                {{ page.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+{% endblock %}

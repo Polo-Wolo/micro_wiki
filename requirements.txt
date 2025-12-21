@@ -1,0 +1,6 @@
+fastapi
+pyyaml
+markdown
+uvicorn
+jinja2
+watchdog

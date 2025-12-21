@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+
+    <h1 class="title">Recherche pour “{{ query }}”</h1>
+
+    {% if query %}
+      <p class="has-text-grey mb-4">
+        {{ results|length }} résultat(s) 
+      </p>
+
+      {% if results %}
+        <ul>
+          {% for page in results %}
+            <li>
+              <a href="/page/{{ page.slug }}">
+                {{ page.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Aucun résultat.</p>
+      {% endif %}
+    {% else %}
+      <p class="has-text-grey">
+        Entrez un terme dans la barre de recherche.
+      </p>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

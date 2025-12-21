@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="title">Tags</h2>
+
+<div class="tags">
+  {% for t in page.tags %}
+    <a class="tag is-link is-light" href="/tags/{{ t }}">
+      {{ t }}
+    </a>
+  {% endfor %}
+</div>
+
+<div class="content">
+  {{ html | safe }}
+</div>
+
+{% if backlinks %}
+<hr>
+<h2 class="subtitle">Liens entrants</h2>
+<ul>
+  {% for p in backlinks %}
+  <li><a href="{{ base_url }}page/{{ page.slug }}.html">{{ page.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

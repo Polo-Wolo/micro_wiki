@@ -1,0 +1,19 @@
+site:
+  name: "🔥 Micro Wiki"
+  description: "Mon wiki personnel"
+  base_url: "/"
+
+
+paths:
+  notes: "notes"
+
+navbar:
+  brand:
+    label: "🔥 Micro Wiki"
+    url: "/"
+
+  items:
+    - label: "Tags"
+      url: "/tags"
+    - label: "Portfolio"
+      url: "/portfolio"

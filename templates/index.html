@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">Pages</h1>
+
+<div class="content">
+  <ul>
+    {% for p in pages %}
+    <li>
+      <a href="/page/{{ p.slug }}">{{ p.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

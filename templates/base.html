@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+</head>
+<body>
+<script src="{{ url_for('static', path='script.js') }}"></script>
+
+<nav class="navbar is-dark" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ config.navbar.brand.url }}">
+      {{ config.navbar.brand.label }}
+    </a>
+
+    <a role="button"
+       class="navbar-burger"
+       data-target="navbarMenu"
+       aria-label="menu"
+       aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start">
+      {% for item in config.navbar["items"] %}
+        <a class="navbar-item" href="{{ item.url }}">
+          {{ item.label }}
+        </a>
+      {% endfor %}
+    </div>
+    <div class="navbar-end">
+  <div class="navbar-item">
+    <form action="/search" method="get">
+      <div class="field has-addons">
+        <div class="control">
+          <input
+            class="input is-small"
+            type="search"
+            name="q"
+            placeholder="Rechercher…"
+            value="{{ query or '' }}"
+          >
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">
+            🔍
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container content">
+    {% block content %}{% endblock %}
+  </div>
+</section>
+
+
+</body>
+</html>
