@@ -5,5 +5,3 @@ tags: [stm32, capteurs]
 ---
 
 # STM32
-
-Voir aussi [[IMU]].

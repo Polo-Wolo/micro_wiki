@@ -1,24 +1,72 @@
+.layout-root {
+  min-height: 100vh;        /* hauteur minimum = écran */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Zone principale */
+.main-content {
+  flex: 1;                 /* prend tout l'espace restant */
+}
+
 .content img {
     max-width: 100%;
     /* Markdown responsive */
 }
 
-.toc .menu {
-    border-left: 1px solid #dbdbdb;
-    padding-left: 1em;
+.page-content {
+    max-width: 800px;
+    width: 100%;
 }
+
+.toc {
+    width: 300px;
+
+}
+
+.toc .menu {
+    position: sticky;
+    top: 5em;
+}
+
 .toc .menu-list {
-    list-style-type: none;
-    margin: 1em 0;
+    padding-left: 1em;
 }
 
 .toc .menu-list a {
-    padding: 0.15em 0.25em;
+    display: block;
+    padding: 0.15em 0;
+    background-color: transparent;
+    text-decoration: none;
 }
 
+.toc .menu-list a:hover {
+    text-shadow: 0.05em 0 currentColor;
+}
+
+/* Élément actif */
+.toc .menu-list a.is-active {
+    text-shadow: 0.05em 0 currentColor;
+    color: #3273dc;
+}
+
+
+.toc .menu ul,
 .toc .menu ul ul,
 .toc .menu ul li {
-    margin: 0 0.5em;
+    margin: 0 0;
     list-style-type: none;
-    border-left: none;
+    /* border-left: none; */
+}
+
+.toc .menu ul ul li {
+    padding-left: 0.75em;
+}
+
+
+
+.footer {
+    margin-top: 7.5em;
+    background-color: #f5f5f5;
+    padding: 3rem 1.5rem;
 }

@@ -8,7 +8,7 @@ from markdown.extensions.toc import TocExtension
 import markdown
 import re
 
-from .indexer import load_pages, render_wikilinks
+from .indexer import load_pages
 from .watcher import start_watcher          # hot reload des notes
 from .config import get_config
 from .config_watcher import start_config_watcher  # hot reload config

@@ -84,4 +84,3 @@ def startup():
         daemon=True
     ).start()
 ```
-Voir aussi [[STM32]].
