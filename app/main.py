@@ -17,7 +17,7 @@ from .config_watcher import start_config_watcher  # hot reload config
 # FastAPI + templates
 # -------------------------
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/assets", StaticFiles(directory="static"), name="assets")
 templates = Jinja2Templates(directory="templates")
 
 # -------------------------
