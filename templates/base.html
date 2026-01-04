@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="{{ base_url }}assets/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
 
 <body class="has-navbar-fixed-top layout-root">
 
-  <script src="{{ base_url }}assets/script.js"></script>
+  <script src="{{ url_for('static', path='script.js') }}"></script>
 
   <!-- NAVBAR -->
   <nav class="navbar is-dark is-fixed-top" role="navigation">
