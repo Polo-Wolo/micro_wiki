@@ -1,5 +1,8 @@
 name: Build & Deploy Micro Wiki
 
+permissions:
+  contents: write
+  
 on:
   push:
     branches:
@@ -28,6 +31,12 @@ jobs:
         run: |
           source .venv/bin/activate
           python build.py
+
+      - name: Debug dist
+        run: |
+          pwd
+          ls -la
+          ls -la dist || echo "❌ dist not found"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
